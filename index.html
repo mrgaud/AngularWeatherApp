@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <div ng-app='myApp'>
+        <div ng-controller='appCtrl'>
+            <div class="weather-container">
+                <div id="weather-info">
+                    <div class="hide">
+                        <h1 id="location-name">{{weatherData.name}}</h1>
+                        <h2 id="weather-data">{{weatherData.main.temp}}°F {{weatherData.main.humidity}}% {{weatherData.wind.speed}}mph</h2>
+                        <h3 id="weather-description">{{weatherData.weather[0].description}}</h3>
+                    </div>
+
+                    <form class="input" action="index.html" method="post">
+                        <input type="text" placeholder="Zip Code" ng-model='zip'>
+                        <button id="search" ng-click='getWeather(zip)'>Search</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js" charset="utf-8"></script>
+        <script src="js/app.js" charset="utf-8"></script>
+        <script src="js/appCtrl.js" charset="utf-8"></script>
+        <script src="js/appSrvc.js" charset="utf-8"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="js/scripts.js" charset="utf-8"></script>
+    </div>
+</body>
+
+</html>
